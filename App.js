@@ -15,3 +15,15 @@ const App = () => {
 }
 
 export default App
+
+
+// npm i expo-image-picker
+// configurar json
+// "plugins": [
+//   [
+//     "expo-image-picker",
+//     {
+//       "photoPermission": "The app accesses your photos to let you share them with your friends."
+//     }
+//   ]
+// ]

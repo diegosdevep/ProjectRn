@@ -5,7 +5,7 @@ import SignIn from '../components/Auth/SignIn'
 import Welcome from '../components/Auth/Welcome'
 import { setAuthState } from '../features/auth/auth'
 import { auth } from '../firebase/firebase'
-import { signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
 import { Alert } from 'react-native'
 import { validateEmail, validatePassword } from '../utils/validation'
 
@@ -25,8 +25,7 @@ const AuthScreen = () => {
         } else {
             signInWithEmailAndPassword(auth, email, password)
                 .then(user => {
-                    console.log('login success', user)
-                    alert('signed in success')
+                    alert('signed in success', user)
                     dispatch(setAuthState('signedIn'))
                 })
                 .catch(err => Alert.alert('Login Error', err.message))
@@ -40,8 +39,7 @@ const AuthScreen = () => {
         } else {
             createUserWithEmailAndPassword(auth, email, password, passwordRepeat)
                 .then(user => {
-                    console.log('create success', user)
-                    alert('create in success')
+                    alert('create in success', user)
                     dispatch(setAuthState('signedIn'))
                 })
                 .catch(err => Alert.alert('create Error', err.message))

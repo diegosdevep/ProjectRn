@@ -19,8 +19,6 @@ const RootNavigator = () => {
         const unsubscribeAuth = onAuthStateChanged(auth, async user => {
             if (user) {
                 dispatch(restoreToken(user.email))
-            } else {
-                console.log('user is no authenticated')
             }
             setIsLoading(false)
         })
@@ -28,7 +26,7 @@ const RootNavigator = () => {
     }, [])
 
 
-    if (isLoading) return <Loading />
+    if (isLoading) return <Loading title='Cargando...' />
     return <NavigationContainer>
         {userToken ? <BottomTabs /> : <AuthStack />}
     </NavigationContainer>;

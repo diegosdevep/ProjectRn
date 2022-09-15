@@ -3,7 +3,7 @@ import HomeScreen from "../screens/HomeScreen";
 import { FontAwesome } from '@expo/vector-icons'
 import { Colors } from "../utils/colors";
 import ProfileScreen from "../screens/ProfileScreen";
-
+import ChatScreen from '../screens/ChatScreen'
 
 const Tab = createBottomTabNavigator()
 
@@ -27,10 +27,22 @@ const BottomTabs = () => {
                 }}
             />
             <Tab.Screen
+                name="Chats"
+                component={ChatScreen}
+                options={{
+                    tabBarIcon: ({ color }) =>
+                        <FontAwesome
+                            name="comments"
+                            size={30}
+                            color={color}
+                        />
+                }}
+            />
+            <Tab.Screen
                 name="Profile"
                 component={ProfileScreen}
                 options={{
-                    tabBarBadge: 3,
+                    // tabBarBadge: 3,
                     tabBarBadgeStyle: { color: 'white', backgroundColor: 'red' },
                     tabBarIcon: ({ color }) =>
                         <FontAwesome

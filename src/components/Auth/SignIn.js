@@ -13,7 +13,7 @@ const uri = 'https://i.pinimg.com/736x/d7/de/85/d7de851997cb86aea701a2013df48729
 
 const SignIn = () => {
     const dispatch = useDispatch()
-    const { setEmail, setPassword, onLogin } = useContext(AuthContext)
+    const { email, setEmail, password, setPassword, onLogin } = useContext(AuthContext)
 
 
     return (
@@ -27,13 +27,15 @@ const SignIn = () => {
                             <Text style={styles.body}>Welcome back you've been missed!</Text>
 
                             <Input
-                                onChangeText={setEmail}
+                                value={email}
+                                onChangeText={(text) => setEmail(text)}
                                 placeholder='Email'
                                 autoCorrect={false}
                                 autoCapitalize='none'
                             />
                             <Input
-                                onChangeText={setPassword}
+                                value={password}
+                                onChangeText={(text) => setPassword(text)}
                                 placeholder='Enter password'
                                 autoCorrect={false}
                                 secureTextEntry={true}

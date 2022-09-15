@@ -3,13 +3,17 @@ import { Provider } from 'react-redux'
 import RootNavigator from './src/navigation/RootNavigator'
 import { store } from './src/app/store'
 import { LogBox } from 'react-native'
+import AuthProvider from './src/context/AuthContext'
+
 
 LogBox.ignoreLogs(['AsyncStorage']);
 
 const App = () => {
   return (
     <Provider store={store}>
-      <RootNavigator />
+      <AuthProvider>
+        <RootNavigator />
+      </AuthProvider>
     </Provider>
   )
 }

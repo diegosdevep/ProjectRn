@@ -19,7 +19,7 @@ const Input = ({ placeholder, autoCorrect, autoCapitalize, secureTextEntry, onCh
 
 const styles = StyleSheet.create({
     input: {
-        minWidth: '100%',
+        minWidth: '80%',
         padding: 20,
         borderRadius: 16,
         backgroundColor: '#f7f7f7',

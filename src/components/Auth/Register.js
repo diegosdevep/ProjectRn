@@ -1,6 +1,7 @@
-import React from 'react'
-import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React, { useContext } from 'react'
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useDispatch } from 'react-redux'
+import { AuthContext } from '../../context/AuthContext'
 import { setAuthState } from '../../features/auth/auth'
 import Button from '../buttons/Button'
 import ButtonRedes from '../buttons/ButtonRedes'
@@ -11,9 +12,9 @@ import { styles } from './Auth.styles'
 
 const uri = 'https://i.pinimg.com/736x/d7/de/85/d7de851997cb86aea701a2013df48729.jpg'
 
-const Register = ({ onSignUp, setEmail, setPassword, setPasswordRepeat }) => {
+const Register = () => {
     const dispatch = useDispatch()
-
+    const { setEmail, setPassword, setPasswordRepeat, onSignUp } = useContext(AuthContext)
 
     return (
         <>
